@@ -1,5 +1,7 @@
 
 <template name="users">
+  {{constraints "users_start"}}
+
   <h1>Users</h1>
   <table class="users-table">
     <thead>
@@ -38,4 +40,6 @@
   {{#if is_harbormaster}}
     <a href="/users/add-user" class="button hollow invite-user">Invite User</a>
   {{/if}}
+
+  {{constraints "users_end"}}
 </template>

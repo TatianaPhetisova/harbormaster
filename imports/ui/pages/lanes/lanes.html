@@ -1,4 +1,6 @@
 <template name="lanes">
+  {{constraints "lanes_start"}}
+
   <h1>Lanes</h1>
   <a href="/lanes/new/edit" class="hollow button" id="new-lane">New Lane</a>
   <table class="lanes-table">
@@ -41,4 +43,6 @@
       {{/each}}
     </tbody>
   </table>
+
+  {{constraints "lanes_end"}}
 </template>

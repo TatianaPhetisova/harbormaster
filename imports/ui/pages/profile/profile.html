@@ -1,5 +1,7 @@
 
 <template name="profile">
+  {{constraints "profile_start"}}
+
   <form>
     <h1><span>User ID:</span> <span>{{user_email}}</span></h1>
     <fieldset class="fieldset">
@@ -27,4 +29,6 @@
         {{/each}}
       </ul>
   </form>
+
+  {{constraints "profile_end"}}
 </template>

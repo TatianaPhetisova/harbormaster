@@ -1,5 +1,7 @@
 import { chai } from 'meteor/practicalmeteor:chai';
-import { manifest_index } from './global_helpers.js';
+import { manifest_index } from './global_helpers';
+import { constraints } from './global_helpers';
+import { current_lane } from './global_helpers';
 
 describe('Global Helpers', function () {
   describe('#manifest_index', function () {
@@ -29,4 +31,27 @@ describe('Global Helpers', function () {
       manifest_index(random_integer).should.equal((expected_integer++) + 'th');
     });
   });
+
+  describe('#constraints', function () {
+    it('@watch should return a string', function () {
+      const STRING = '';
+      // If we use this any other place, swap it for a module. -SB 29 Jun '17
+      let random_string = () => {
+        let result = '';
+        let chars = '0123456789' +
+          'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' +
+          '~!@#$%^&*()-=+.{}[]|";:?><,./'
+        ;
+        length = Math.round(Math.random() * 32);
+        for (let i = length; i > 0; --i) result += Math.floor(
+          Math.random() * chars.length
+        );
+
+        return result;
+      }
+
+      constraints().should.equal(STRING);
+      (typeof constraints()).should.equal(typeof random_string());
+    })
+  })
 });

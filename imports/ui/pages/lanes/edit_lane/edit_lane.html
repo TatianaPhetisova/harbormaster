@@ -1,4 +1,6 @@
 <template name="edit_lane">
+  {{constraints "edit_lane_start"}}
+
   <h1>Edit Lane:</h1>
   {{#if plying}}
     <form>
@@ -94,4 +96,6 @@
       </li>
     {{/each}}
   </ul>
+
+  {{constraints "edit_lane_end"}}
 </template>

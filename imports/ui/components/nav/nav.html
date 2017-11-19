@@ -1,13 +1,17 @@
 <template name="nav">
   <div class="top-bar-left">
+    {{constraints "nav_left_start"}}
     <ul class="menu">
       <li><a href="/">Overview</a></li>
       <li><a href="/lanes">Lanes</a></li>
       <li><a href="/users">Users</a></li>
       <li><a href="/profile">My Profile</a></li>
     </ul>
+    {{constraints "nav_left_end"}}
   </div>
   <div class="top-bar-right">
+    {{constraints "nav_right_start"}}
     <button class="button hollow logout">Logout</button>
+    {{constraints "nav_right_end"}}
   </div>
 </template>

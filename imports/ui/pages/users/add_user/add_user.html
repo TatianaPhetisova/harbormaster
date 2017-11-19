@@ -1,4 +1,6 @@
 <template name="add_user">
+  {{constraints "add_user_start"}}
+
   {{#if fresh}}
     <h1>Welcome to Harbormaster!</h1>
     <h2>You're the first user to sign in.</h2>
@@ -23,4 +25,6 @@
       <h2>You need to be a Harbormaster to invite users.</h2>
     {{/if}}
   {{/if}}
+
+  {{constraints "add_user_end"}}
 </template>

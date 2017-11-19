@@ -1,44 +1,61 @@
 <template name="main">
-  {{#if is_loaded}}
-    {{#if no_users}}
-      <div class="row">
-        <div class="small-10 small-centered column">
-          {{> add_user fresh=true}}
+  {{#if constraints_loaded}}
+    {{constraints "client_start"}}
+
+    {{#if is_loaded}}
+      {{#if no_users}}
+        <div class="row">
+          <div class="small-10 small-centered column">
+            {{> add_user fresh=true}}
+          </div>
         </div>
-      </div>
-    {{else}}
-      {{#if logged_in}}
-        {{#if no_harbormasters}}
-          <div class="row">
-            <div class="small-10 small-centered column">
-              <h1>It's your Harbor!</h1>
-              <h2>It doesn't look like there are any Harbormasters yet.</h2>
-              <p>Since it looks like you're the first one to sign up for this harbormaster instance you'll be made the first Harbormaster.  You can change this, and add other Harbormasters, in the <a class="acknlowedge-new-harbormaster" href="/users">User</a> settings.</p>
-              <a href="/" class="button success large acknowledge-new-harbormaster">Okay!</a>
+      {{else}}
+        {{#if logged_in}}
+          {{#if no_harbormasters}}
+            <div class="row">
+              <div class="small-10 small-centered column">
+                <h1>It's your Harbor!</h1>
+                <h2>It doesn't look like there are any Harbormasters yet.</h2>
+                <p>Since it looks like you're the first one to sign up for this harbormaster instance you'll be made the first Harbormaster.  You can change this, and add other Harbormasters, in the <a class="acknlowedge-new-harbormaster" href="/users">User</a> settings.</p>
+                <a href="/" class="button success large acknowledge-new-harbormaster">Okay!</a>
+              </div>
             </div>
-          </div>
-        {{else}}
-          <div class="top-bar">
+          {{else}}
+            <div class="top-bar">
+              {{constraints "top_bar_start"}}
+
               {{> Template.dynamic template=header}}
-          </div>
+
+              {{constraints "top_bar_end"}}
+            </div>
+            <div class="row">
+              <div class="small-10 small-centered column">
+                {{constraints "main_start"}}
+
+                {{> Template.dynamic template=main}}
+
+                {{constraints "main_end"}}
+              </div>
+            </div>
+          {{/if}}
+        {{else}}
           <div class="row">
-            <div class="small-10 small-centered column">
-              {{> Template.dynamic template=main}}
+            <div class="small-10 medium-8 large-6 small-centered column">
+              <h1>Welcome to Harbormaster!</h1>
+              <h2>Please log in.</h2>
+              {{> loginButtons}}
             </div>
           </div>
         {{/if}}
-      {{else}}
-        <div class="row">
-          <div class="small-10 medium-8 large-6 small-centered column">
-            <h1>Welcome to Harbormaster!</h1>
-            <h2>Please log in.</h2>
-            {{> loginButtons}}
-          </div>
-        </div>
       {{/if}}
+    {{else}}
+      {{constraints "client_loading"}}
+      {{> spinner}}
     {{/if}}
+    {{> meteorStatus position='top'}}
+
+    {{constraints "client_end"}}
   {{else}}
     {{> spinner}}
   {{/if}}
-  {{> meteorStatus position='top'}}
 </template>

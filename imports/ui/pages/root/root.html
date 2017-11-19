@@ -1,4 +1,6 @@
 <template name="root">
+  {{constraints "root_start"}}
+
   <h1>Welcome to your Harbor</h1>
   <h2>{{shipments_last_24_hours}} shipments made in the last day</h2>
   <h3 id="last-time-shipped-header">
@@ -11,4 +13,6 @@
     <li><a href="/lanes">{{total_lanes}} Lanes</a></li>
     <li><a href="/users">{{total_users}} Users, {{total_captains}} of which are Captains, and {{total_harbormasters}} of which are Harbormasters</a></li>
   </ul>
+
+  {{constraints "root_end"}}
 </template>

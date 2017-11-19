@@ -22,7 +22,14 @@ export const current_lane = () => {
   return lane;
 }
 
+export const constraints = (type) => {
+  const STRING = '';
+  console.log(type);
+
+  return STRING;
+}
+
 Template.registerHelper('manifest_index', manifest_index);
 Template.registerHelper('current_lane', current_lane);
-
+Template.registerHelper('constraints', constraints);
 

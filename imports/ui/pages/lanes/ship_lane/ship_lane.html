@@ -1,4 +1,6 @@
 <template name="ship_lane">
+  {{constraints "ship_lane_start"}}
+
   {{#if lane}}
     <h1>Ship to lane: {{lane.name}}</h1>
     <h2>Let's review.  Ready to ship?</h2>
@@ -53,4 +55,6 @@
       </li>
     {{/each}}
   </ul>
+
+  {{constraints "ship_lane_end"}}
 </template>

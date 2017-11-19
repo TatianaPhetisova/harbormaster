@@ -1,7 +1,7 @@
 Meteor.Spinner.options = {
-  lines: 25, // The number of lines to draw
+  lines: 20, // The number of lines to draw
   length: 0.5, // The length of each line
-  width: 3, // The line thickness
+  width: 5, // The line thickness
   radius: 50, // The radius of the inner circle
   corners: 1, // Corner roundness (0..1)
   rotate: 18, // The rotation offset
